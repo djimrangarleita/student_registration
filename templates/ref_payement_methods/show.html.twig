@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}RefPayementMethods{% endblock %}
+
+{% block body %}
+    <h1>RefPayementMethods</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ ref_payement_method.id }}</td>
+            </tr>
+            <tr>
+                <th>Payement_method_code</th>
+                <td>{{ ref_payement_method.payementMethodCode }}</td>
+            </tr>
+            <tr>
+                <th>Payement_method_description</th>
+                <td>{{ ref_payement_method.payementMethodDescription }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('ref_payement_methods_index') }}">back to list</a>
+
+    <a href="{{ path('ref_payement_methods_edit', {'id': ref_payement_method.id}) }}">edit</a>
+
+    {{ include('ref_payement_methods/_delete_form.html.twig') }}
+{% endblock %}

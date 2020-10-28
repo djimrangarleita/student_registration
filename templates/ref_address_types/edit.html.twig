@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit RefAddressTypes{% endblock %}
+
+{% block body %}
+    <h1>Edit RefAddressTypes</h1>
+
+    {{ include('ref_address_types/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('ref_address_types_index') }}">back to list</a>
+
+    {{ include('ref_address_types/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}StudentsRelationships index{% endblock %}
+
+{% block body %}
+    <h1>StudentsRelationships index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for students_relationship in students_relationships %}
+            <tr>
+                <td>{{ students_relationship.id }}</td>
+                <td>
+                    <a href="{{ path('students_relationships_show', {'id': students_relationship.id}) }}">show</a>
+                    <a href="{{ path('students_relationships_edit', {'id': students_relationship.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('students_relationships_new') }}">Create new</a>
+{% endblock %}

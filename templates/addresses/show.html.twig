@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Addresses{% endblock %}
+
+{% block body %}
+    <h1>Addresses</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ address.id }}</td>
+            </tr>
+            <tr>
+                <th>University_accommodation_yn</th>
+                <td>{{ address.universityAccommodationYn ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Line_1_number_building</th>
+                <td>{{ address.line1NumberBuilding }}</td>
+            </tr>
+            <tr>
+                <th>Line_2_number_street</th>
+                <td>{{ address.line2NumberStreet }}</td>
+            </tr>
+            <tr>
+                <th>Line_3_area_locality</th>
+                <td>{{ address.line3AreaLocality }}</td>
+            </tr>
+            <tr>
+                <th>City</th>
+                <td>{{ address.city }}</td>
+            </tr>
+            <tr>
+                <th>Zip_code</th>
+                <td>{{ address.zipCode }}</td>
+            </tr>
+            <tr>
+                <th>State_province_country</th>
+                <td>{{ address.stateProvinceCountry }}</td>
+            </tr>
+            <tr>
+                <th>Country</th>
+                <td>{{ address.country }}</td>
+            </tr>
+            <tr>
+                <th>Other_address_details</th>
+                <td>{{ address.otherAddressDetails }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('addresses_index') }}">back to list</a>
+
+    <a href="{{ path('addresses_edit', {'id': address.id}) }}">edit</a>
+
+    {{ include('addresses/_delete_form.html.twig') }}
+{% endblock %}

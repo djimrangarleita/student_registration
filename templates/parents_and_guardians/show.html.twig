@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ParentsAndGuardians{% endblock %}
+
+{% block body %}
+    <h1>ParentsAndGuardians</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ parents_and_guardian.id }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ parents_and_guardian.gender }}</td>
+            </tr>
+            <tr>
+                <th>First_name</th>
+                <td>{{ parents_and_guardian.firstName }}</td>
+            </tr>
+            <tr>
+                <th>Middle_name</th>
+                <td>{{ parents_and_guardian.middleName }}</td>
+            </tr>
+            <tr>
+                <th>Last_name</th>
+                <td>{{ parents_and_guardian.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Cell_mobile_number</th>
+                <td>{{ parents_and_guardian.cellMobileNumber }}</td>
+            </tr>
+            <tr>
+                <th>Email_address</th>
+                <td>{{ parents_and_guardian.emailAddress }}</td>
+            </tr>
+            <tr>
+                <th>Other_details</th>
+                <td>{{ parents_and_guardian.otherDetails }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('parents_and_guardians_index') }}">back to list</a>
+
+    <a href="{{ path('parents_and_guardians_edit', {'id': parents_and_guardian.id}) }}">edit</a>
+
+    {{ include('parents_and_guardians/_delete_form.html.twig') }}
+{% endblock %}

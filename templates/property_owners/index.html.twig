@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}PropertyOwners index{% endblock %}
+
+{% block body %}
+    <h1>PropertyOwners index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Landlord_name</th>
+                <th>Date_first_rental</th>
+                <th>Other_landlord_details</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for property_owner in property_owners %}
+            <tr>
+                <td>{{ property_owner.id }}</td>
+                <td>{{ property_owner.landlordName }}</td>
+                <td>{{ property_owner.dateFirstRental ? property_owner.dateFirstRental|date('Y-m-d') : '' }}</td>
+                <td>{{ property_owner.otherLandlordDetails }}</td>
+                <td>
+                    <a href="{{ path('property_owners_show', {'id': property_owner.id}) }}">show</a>
+                    <a href="{{ path('property_owners_edit', {'id': property_owner.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('property_owners_new') }}">Create new</a>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}StudentClassRegistrations index{% endblock %}
+
+{% block body %}
+    <h1>StudentClassRegistrations index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Date_of_registration</th>
+                <th>Date_of_first_class</th>
+                <th>Date_of_last_class</th>
+                <th>Other_details</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for student_class_registration in student_class_registrations %}
+            <tr>
+                <td>{{ student_class_registration.id }}</td>
+                <td>{{ student_class_registration.dateOfRegistration ? student_class_registration.dateOfRegistration|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ student_class_registration.dateOfFirstClass ? student_class_registration.dateOfFirstClass|date('Y-m-d') : '' }}</td>
+                <td>{{ student_class_registration.dateOfLastClass ? student_class_registration.dateOfLastClass|date('Y-m-d') : '' }}</td>
+                <td>{{ student_class_registration.otherDetails }}</td>
+                <td>
+                    <a href="{{ path('student_class_registrations_show', {'id': student_class_registration.id}) }}">show</a>
+                    <a href="{{ path('student_class_registrations_edit', {'id': student_class_registration.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('student_class_registrations_new') }}">Create new</a>
+{% endblock %}
