@@ -4,6 +4,9 @@ namespace App\Entity;
 
 use App\Repository\StudentClassRegistrationsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=StudentClassRegistrationsRepository::class)
@@ -20,17 +23,20 @@ class StudentClassRegistrations
     /**
      * @ORM\ManyToOne(targetEntity=Students::class, inversedBy="studentClassRegistrations")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $student;
 
     /**
      * @ORM\ManyToOne(targetEntity=Classes::class, inversedBy="studentClassRegistrations")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $class;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Gedmo\Timestampable(on="create")
      */
     private $date_of_registration;
 

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\StudentClassRegistrations;
 use App\Form\StudentClassRegistrationsType;
 use App\Repository\StudentClassRegistrationsRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/student/class/registrations")
+ * @IsGranted("ROLE_ADMIN")
+ * 
  */
 class StudentClassRegistrationsController extends AbstractController
 {
@@ -83,7 +86,7 @@ class StudentClassRegistrationsController extends AbstractController
      */
     public function delete(Request $request, StudentClassRegistrations $studentClassRegistration): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$studentClassRegistration->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $studentClassRegistration->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($studentClassRegistration);
             $entityManager->flush();

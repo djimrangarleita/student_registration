@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit PropertyOwners{% endblock %}
+{% block title %}Edit PropertyOwners
+{% endblock %}
 
 {% block body %}
-    <h1>Edit PropertyOwners</h1>
+	<div class="container">
+		<h1>Edit PropertyOwners</h1>
 
-    {{ include('property_owners/_form.html.twig', {'button_label': 'Update'}) }}
+		{{ include('property_owners/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('property_owners_index') }}">back to list</a>
+		<a href="{{ path('property_owners_index') }}">back to list</a>
 
-    {{ include('property_owners/_delete_form.html.twig') }}
+		{{ include('property_owners/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

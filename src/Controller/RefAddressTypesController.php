@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\RefAddressTypes;
 use App\Form\RefAddressTypesType;
 use App\Repository\RefAddressTypesRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/ref/address/types")
+ * @isGranted("ROLE_ADMIN")
  */
 class RefAddressTypesController extends AbstractController
 {

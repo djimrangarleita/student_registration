@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New RefRelationshipTypes{% endblock %}
+{% block title %}New RefRelationshipTypes
+{% endblock %}
 
 {% block body %}
-    <h1>Create new RefRelationshipTypes</h1>
+	<div class="container">
+		<h1>Create new RefRelationshipTypes</h1>
 
-    {{ include('ref_relationship_types/_form.html.twig') }}
+		{{ include('ref_relationship_types/_form.html.twig') }}
 
-    <a href="{{ path('ref_relationship_types_index') }}">back to list</a>
+		<a href="{{ path('ref_relationship_types_index') }}">back to list</a>
+	</div>
 {% endblock %}

@@ -2,13 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\StudentsRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-
+use App\Repository\StudentsRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ORM\Entity(repositoryClass=StudentsRepository::class)
+ * @UniqueEntity(fields={"email_address"}, message="Adresse email deja pris")
  */
 class Students
 {
@@ -21,11 +23,13 @@ class Students
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $gender;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $first_name;
 
@@ -36,16 +40,22 @@ class Students
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $last_name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Regex(
+     * pattern="/[0-9]/")
+     * @Assert\Length(min="8", max="14")
      */
     private $cell_mobile_number;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Email
      */
     private $email_address;
 
@@ -323,5 +333,10 @@ class Students
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->email_address;
     }
 }

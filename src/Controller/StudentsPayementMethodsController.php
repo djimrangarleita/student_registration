@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\StudentsPayementMethods;
 use App\Form\StudentsPayementMethodsType;
 use App\Repository\StudentsPayementMethodsRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/students/payement/methods")
+ * @isGranted("ROLE_ADMIN")
  */
 class StudentsPayementMethodsController extends AbstractController
 {

@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\StudentsRelationshipsRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=StudentsRelationshipsRepository::class)
@@ -20,18 +21,21 @@ class StudentsRelationships
     /**
      * @ORM\ManyToOne(targetEntity=Students::class, inversedBy="studentsRelationships")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $student;
 
     /**
      * @ORM\ManyToOne(targetEntity=ParentsAndGuardians::class, inversedBy="studentsRelationships")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $person;
 
     /**
      * @ORM\ManyToOne(targetEntity=RefRelationshipTypes::class, inversedBy="studentsRelationships")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $relationship_type_code;
 

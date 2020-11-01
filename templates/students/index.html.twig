@@ -1,51 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Students index{% endblock %}
+{% block title %}Students index
+{% endblock %}
 
 {% block body %}
-    <h1>Students index</h1>
+	<div class="container">
+		<h1>Students index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Gender</th>
-                <th>First_name</th>
-                <th>Middle_name</th>
-                <th>Last_name</th>
-                <th>Cell_mobile_number</th>
-                <th>Email_address</th>
-                <th>Date_first_rental</th>
-                <th>Date_left_university</th>
-                <th>Other_student_details</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for student in students %}
-            <tr>
-                <td>{{ student.id }}</td>
-                <td>{{ student.gender }}</td>
-                <td>{{ student.firstName }}</td>
-                <td>{{ student.middleName }}</td>
-                <td>{{ student.lastName }}</td>
-                <td>{{ student.cellMobileNumber }}</td>
-                <td>{{ student.emailAddress }}</td>
-                <td>{{ student.dateFirstRental ? student.dateFirstRental|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ student.dateLeftUniversity ? student.dateLeftUniversity|date('Y-m-d') : '' }}</td>
-                <td>{{ student.otherStudentDetails }}</td>
-                <td>
-                    <a href="{{ path('students_show', {'id': student.id}) }}">show</a>
-                    <a href="{{ path('students_edit', {'id': student.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="11">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Gender</th>
+					<th>First_name</th>
+					<th>Middle_name</th>
+					<th>Last_name</th>
+					<th>Cell_mobile_number</th>
+					<th>Email_address</th>
+					<th>Date_first_rental</th>
+					<th>Date_left_university</th>
+					<th>Other_student_details</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for student in students %}
+					<tr>
+						<td>{{ student.id }}</td>
+						<td>{{ student.gender }}</td>
+						<td>{{ student.firstName }}</td>
+						<td>{{ student.middleName }}</td>
+						<td>{{ student.lastName }}</td>
+						<td>{{ student.cellMobileNumber }}</td>
+						<td>{{ student.emailAddress }}</td>
+						<td>{{ student.dateFirstRental ? student.dateFirstRental|date('Y-m-d H:i:s') : '' }}</td>
+						<td>{{ student.dateLeftUniversity ? student.dateLeftUniversity|date('Y-m-d') : '' }}</td>
+						<td>{{ student.otherStudentDetails }}</td>
+						<td>
+							<a href="{{ path('students_show', {'id': student.id}) }}">show</a>
+							<a href="{{ path('students_edit', {'id': student.id}) }}">edit</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="11">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 
-    <a href="{{ path('students_new') }}">Create new</a>
+		<a href="{{ path('students_new') }}">Create new</a>
+	</div>
 {% endblock %}

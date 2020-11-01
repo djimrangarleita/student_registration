@@ -2,13 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\ClassesRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\ClassesRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=ClassesRepository::class)
+ * @UniqueEntity(fields={"class_name"}, message="Cette classe existe deja")
  */
 class Classes
 {
@@ -21,6 +24,7 @@ class Classes
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $class_name;
 

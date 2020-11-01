@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit StudentsRelationships{% endblock %}
+{% block title %}Edit StudentsRelationships
+{% endblock %}
 
 {% block body %}
-    <h1>Edit StudentsRelationships</h1>
+	<div class="container">
+		<h1>Edit StudentsRelationships</h1>
 
-    {{ include('students_relationships/_form.html.twig', {'button_label': 'Update'}) }}
+		{{ include('students_relationships/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('students_relationships_index') }}">back to list</a>
+		<a href="{{ path('students_relationships_index') }}">back to list</a>
 
-    {{ include('students_relationships/_delete_form.html.twig') }}
+		{{ include('students_relationships/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

@@ -1,51 +1,54 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Addresses index{% endblock %}
+{% block title %}Addresses index
+{% endblock %}
 
 {% block body %}
-    <h1>Addresses index</h1>
+	<div class="container">
+		<h1>Addresses index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>University_accommodation_yn</th>
-                <th>Line_1_number_building</th>
-                <th>Line_2_number_street</th>
-                <th>Line_3_area_locality</th>
-                <th>City</th>
-                <th>Zip_code</th>
-                <th>State_province_country</th>
-                <th>Country</th>
-                <th>Other_address_details</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for address in addresses %}
-            <tr>
-                <td>{{ address.id }}</td>
-                <td>{{ address.universityAccommodationYn ? 'Yes' : 'No' }}</td>
-                <td>{{ address.line1NumberBuilding }}</td>
-                <td>{{ address.line2NumberStreet }}</td>
-                <td>{{ address.line3AreaLocality }}</td>
-                <td>{{ address.city }}</td>
-                <td>{{ address.zipCode }}</td>
-                <td>{{ address.stateProvinceCountry }}</td>
-                <td>{{ address.country }}</td>
-                <td>{{ address.otherAddressDetails }}</td>
-                <td>
-                    <a href="{{ path('addresses_show', {'id': address.id}) }}">show</a>
-                    <a href="{{ path('addresses_edit', {'id': address.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="11">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>University_accommodation_yn</th>
+					<th>Line_1_number_building</th>
+					<th>Line_2_number_street</th>
+					<th>Line_3_area_locality</th>
+					<th>City</th>
+					<th>Zip_code</th>
+					<th>State_province_country</th>
+					<th>Country</th>
+					<th>Other_address_details</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for address in addresses %}
+					<tr>
+						<td>{{ address.id }}</td>
+						<td>{{ address.universityAccommodationYn ? 'Yes' : 'No' }}</td>
+						<td>{{ address.line1NumberBuilding }}</td>
+						<td>{{ address.line2NumberStreet }}</td>
+						<td>{{ address.line3AreaLocality }}</td>
+						<td>{{ address.city }}</td>
+						<td>{{ address.zipCode }}</td>
+						<td>{{ address.stateProvinceCountry }}</td>
+						<td>{{ address.country }}</td>
+						<td>{{ address.otherAddressDetails }}</td>
+						<td>
+							<a href="{{ path('addresses_show', {'id': address.id}) }}">show</a>
+							<a href="{{ path('addresses_edit', {'id': address.id}) }}">edit</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="11">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 
-    <a href="{{ path('addresses_new') }}">Create new</a>
+		<a href="{{ path('addresses_new') }}">Create new</a>
+	</div>
 {% endblock %}

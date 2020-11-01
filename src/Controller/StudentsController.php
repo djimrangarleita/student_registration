@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Students;
 use App\Form\StudentsType;
 use App\Repository\StudentsRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,6 +28,7 @@ class StudentsController extends AbstractController
 
     /**
      * @Route("/new", name="students_new", methods={"GET","POST"})
+     * @isGranted("ROLE_USER")
      */
     public function new(Request $request): Response
     {
@@ -60,6 +62,7 @@ class StudentsController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="students_edit", methods={"GET","POST"})
+     * @isGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Students $student): Response
     {
@@ -80,6 +83,7 @@ class StudentsController extends AbstractController
 
     /**
      * @Route("/{id}", name="students_delete", methods={"DELETE"})
+     * @isGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Students $student): Response
     {

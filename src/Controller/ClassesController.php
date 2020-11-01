@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Classes;
 use App\Form\ClassesType;
 use App\Repository\ClassesRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -27,6 +28,7 @@ class ClassesController extends AbstractController
 
     /**
      * @Route("/new", name="classes_new", methods={"GET","POST"})
+     * @isGranted("ROLE_ADMIN")
      */
     public function new(Request $request): Response
     {
@@ -60,6 +62,7 @@ class ClassesController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="classes_edit", methods={"GET","POST"})
+     * @isGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, Classes $class): Response
     {
@@ -80,10 +83,11 @@ class ClassesController extends AbstractController
 
     /**
      * @Route("/{id}", name="classes_delete", methods={"DELETE"})
+     * @isGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, Classes $class): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$class->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $class->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($class);
             $entityManager->flush();

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\StudentAddresses;
 use App\Form\StudentAddressesType;
 use App\Repository\StudentAddressesRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/student/addresses")
+ * @IsGranted("ROLE_STUDENT")
  */
 class StudentAddressesController extends AbstractController
 {
@@ -60,6 +62,7 @@ class StudentAddressesController extends AbstractController
 
     /**
      * @Route("/{id}/edit", name="student_addresses_edit", methods={"GET","POST"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function edit(Request $request, StudentAddresses $studentAddress): Response
     {
@@ -80,10 +83,11 @@ class StudentAddressesController extends AbstractController
 
     /**
      * @Route("/{id}", name="student_addresses_delete", methods={"DELETE"})
+     * @IsGranted("ROLE_ADMIN")
      */
     public function delete(Request $request, StudentAddresses $studentAddress): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$studentAddress->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $studentAddress->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($studentAddress);
             $entityManager->flush();

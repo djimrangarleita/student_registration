@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\ParentsAndGuardians;
 use App\Form\ParentsAndGuardiansType;
 use App\Repository\ParentsAndGuardiansRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/parents/and/guardians")
+ * @isGranted("ROLE_ADMIN")
  */
 class ParentsAndGuardiansController extends AbstractController
 {

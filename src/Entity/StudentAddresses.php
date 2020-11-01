@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\StudentAddressesRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=StudentAddressesRepository::class)
@@ -20,33 +21,39 @@ class StudentAddresses
     /**
      * @ORM\ManyToOne(targetEntity=RefAddressTypes::class, inversedBy="studentAddresses")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $address_type_code;
 
     /**
      * @ORM\ManyToOne(targetEntity=Students::class, inversedBy="studentAddresses")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $student;
 
     /**
      * @ORM\ManyToOne(targetEntity=Addresses::class, inversedBy="studentAddresses")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $address;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank
      */
     private $date_address_from;
 
     /**
      * @ORM\Column(type="date", nullable=true)
+     * @Assert\NotBlank
      */
     private $date_address_to;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $monthly_rental;
 

@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\RefRelationshipTypes;
 use App\Form\RefRelationshipTypesType;
 use App\Repository\RefRelationshipTypesRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -12,6 +13,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 /**
  * @Route("/ref/relationship/types")
+ * @isGranted("ROLE_ADMIN")
  */
 class RefRelationshipTypesController extends AbstractController
 {

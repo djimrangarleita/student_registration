@@ -1,47 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}ParentsAndGuardians index{% endblock %}
+{% block title %}ParentsAndGuardians index
+{% endblock %}
 
 {% block body %}
-    <h1>ParentsAndGuardians index</h1>
+	<div class="container">
+		<h1>ParentsAndGuardians index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Gender</th>
-                <th>First_name</th>
-                <th>Middle_name</th>
-                <th>Last_name</th>
-                <th>Cell_mobile_number</th>
-                <th>Email_address</th>
-                <th>Other_details</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for parents_and_guardian in parents_and_guardians %}
-            <tr>
-                <td>{{ parents_and_guardian.id }}</td>
-                <td>{{ parents_and_guardian.gender }}</td>
-                <td>{{ parents_and_guardian.firstName }}</td>
-                <td>{{ parents_and_guardian.middleName }}</td>
-                <td>{{ parents_and_guardian.lastName }}</td>
-                <td>{{ parents_and_guardian.cellMobileNumber }}</td>
-                <td>{{ parents_and_guardian.emailAddress }}</td>
-                <td>{{ parents_and_guardian.otherDetails }}</td>
-                <td>
-                    <a href="{{ path('parents_and_guardians_show', {'id': parents_and_guardian.id}) }}">show</a>
-                    <a href="{{ path('parents_and_guardians_edit', {'id': parents_and_guardian.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="9">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Gender</th>
+					<th>First_name</th>
+					<th>Middle_name</th>
+					<th>Last_name</th>
+					<th>Cell_mobile_number</th>
+					<th>Email_address</th>
+					<th>Other_details</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for parents_and_guardian in parents_and_guardians %}
+					<tr>
+						<td>{{ parents_and_guardian.id }}</td>
+						<td>{{ parents_and_guardian.gender }}</td>
+						<td>{{ parents_and_guardian.firstName }}</td>
+						<td>{{ parents_and_guardian.middleName }}</td>
+						<td>{{ parents_and_guardian.lastName }}</td>
+						<td>{{ parents_and_guardian.cellMobileNumber }}</td>
+						<td>{{ parents_and_guardian.emailAddress }}</td>
+						<td>{{ parents_and_guardian.otherDetails }}</td>
+						<td>
+							<a href="{{ path('parents_and_guardians_show', {'id': parents_and_guardian.id}) }}">show</a>
+							<a href="{{ path('parents_and_guardians_edit', {'id': parents_and_guardian.id}) }}">edit</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="9">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 
-    <a href="{{ path('parents_and_guardians_new') }}">Create new</a>
+		<a href="{{ path('parents_and_guardians_new') }}">Create new</a>
+	</div>
 {% endblock %}

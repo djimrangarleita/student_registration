@@ -1,34 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}PropertyOwners{% endblock %}
+{% block title %}PropertyOwners
+{% endblock %}
 
 {% block body %}
-    <h1>PropertyOwners</h1>
+	<div class="container">
+		<h1>PropertyOwners</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ property_owner.id }}</td>
-            </tr>
-            <tr>
-                <th>Landlord_name</th>
-                <td>{{ property_owner.landlordName }}</td>
-            </tr>
-            <tr>
-                <th>Date_first_rental</th>
-                <td>{{ property_owner.dateFirstRental ? property_owner.dateFirstRental|date('Y-m-d') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Other_landlord_details</th>
-                <td>{{ property_owner.otherLandlordDetails }}</td>
-            </tr>
-        </tbody>
-    </table>
+		<table class="table">
+			<tbody>
+				<tr>
+					<th>Id</th>
+					<td>{{ property_owner.id }}</td>
+				</tr>
+				<tr>
+					<th>Landlord_name</th>
+					<td>{{ property_owner.landlordName }}</td>
+				</tr>
+				<tr>
+					<th>Date_first_rental</th>
+					<td>{{ property_owner.dateFirstRental ? property_owner.dateFirstRental|date('Y-m-d') : '' }}</td>
+				</tr>
+				<tr>
+					<th>Other_landlord_details</th>
+					<td>{{ property_owner.otherLandlordDetails }}</td>
+				</tr>
+			</tbody>
+		</table>
 
-    <a href="{{ path('property_owners_index') }}">back to list</a>
+		<a href="{{ path('property_owners_index') }}">back to list</a>
 
-    <a href="{{ path('property_owners_edit', {'id': property_owner.id}) }}">edit</a>
+		<a href="{{ path('property_owners_edit', {'id': property_owner.id}) }}">edit</a>
 
-    {{ include('property_owners/_delete_form.html.twig') }}
+		{{ include('property_owners/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

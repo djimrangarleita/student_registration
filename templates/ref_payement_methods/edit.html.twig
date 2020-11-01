@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit RefPayementMethods{% endblock %}
+{% block title %}Edit RefPayementMethods
+{% endblock %}
 
 {% block body %}
-    <h1>Edit RefPayementMethods</h1>
+	<div class="container">
+		<h1>Edit RefPayementMethods</h1>
 
-    {{ include('ref_payement_methods/_form.html.twig', {'button_label': 'Update'}) }}
+		{{ include('ref_payement_methods/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('ref_payement_methods_index') }}">back to list</a>
+		<a href="{{ path('ref_payement_methods_index') }}">back to list</a>
 
-    {{ include('ref_payement_methods/_delete_form.html.twig') }}
+		{{ include('ref_payement_methods/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

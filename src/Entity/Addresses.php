@@ -6,6 +6,8 @@ use App\Repository\AddressesRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=AddressesRepository::class)
@@ -22,51 +24,63 @@ class Addresses
     /**
      * @ORM\ManyToOne(targetEntity=PropertyOwners::class, inversedBy="addresses")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $landlord;
 
     /**
      * @ORM\Column(type="boolean")
+     * @Assert\NotBlank
+     * 
      */
     private $university_accommodation_yn;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * 
      */
     private $line_1_number_building;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $line_2_number_street;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $line_3_area_locality;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $city;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $zip_code;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $state_province_country;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $country;
 
     /**
      * @ORM\Column(type="text", nullable=true)
+     * @Assert\NotBlank
      */
     private $other_address_details;
 

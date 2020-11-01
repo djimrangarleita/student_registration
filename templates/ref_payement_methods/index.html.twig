@@ -1,37 +1,40 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}RefPayementMethods index{% endblock %}
+{% block title %}RefPayementMethods index
+{% endblock %}
 
 {% block body %}
-    <h1>RefPayementMethods index</h1>
+	<div class="container">
+		<h1>RefPayementMethods index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Payement_method_code</th>
-                <th>Payement_method_description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for ref_payement_method in ref_payement_methods %}
-            <tr>
-                <td>{{ ref_payement_method.id }}</td>
-                <td>{{ ref_payement_method.payementMethodCode }}</td>
-                <td>{{ ref_payement_method.payementMethodDescription }}</td>
-                <td>
-                    <a href="{{ path('ref_payement_methods_show', {'id': ref_payement_method.id}) }}">show</a>
-                    <a href="{{ path('ref_payement_methods_edit', {'id': ref_payement_method.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Payement_method_code</th>
+					<th>Payement_method_description</th>
+					<th>actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for ref_payement_method in ref_payement_methods %}
+					<tr>
+						<td>{{ ref_payement_method.id }}</td>
+						<td>{{ ref_payement_method.payementMethodCode }}</td>
+						<td>{{ ref_payement_method.payementMethodDescription }}</td>
+						<td>
+							<a href="{{ path('ref_payement_methods_show', {'id': ref_payement_method.id}) }}">show</a>
+							<a href="{{ path('ref_payement_methods_edit', {'id': ref_payement_method.id}) }}">edit</a>
+						</td>
+					</tr>
+				{% else %}
+					<tr>
+						<td colspan="4">no records found</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
 
-    <a href="{{ path('ref_payement_methods_new') }}">Create new</a>
+		<a href="{{ path('ref_payement_methods_new') }}">Create new</a>
+	</div>
 {% endblock %}

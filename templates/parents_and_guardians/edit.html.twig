@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit ParentsAndGuardians{% endblock %}
+{% block title %}Edit ParentsAndGuardians
+{% endblock %}
 
 {% block body %}
-    <h1>Edit ParentsAndGuardians</h1>
+	<div class="container">
+		<h1>Edit ParentsAndGuardians</h1>
 
-    {{ include('parents_and_guardians/_form.html.twig', {'button_label': 'Update'}) }}
+		{{ include('parents_and_guardians/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('parents_and_guardians_index') }}">back to list</a>
+		<a href="{{ path('parents_and_guardians_index') }}">back to list</a>
 
-    {{ include('parents_and_guardians/_delete_form.html.twig') }}
+		{{ include('parents_and_guardians/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\ParentsAndGuardians;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TelType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,8 +18,8 @@ class ParentsAndGuardiansType extends AbstractType
             ->add('first_name')
             ->add('middle_name')
             ->add('last_name')
-            ->add('cell_mobile_number')
-            ->add('email_address')
+            ->add('cell_mobile_number', TelType::class)
+            ->add('email_address', EmailType::class)
             ->add('other_details')
             ->add('address')
         ;

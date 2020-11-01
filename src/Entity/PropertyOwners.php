@@ -6,6 +6,8 @@ use App\Repository\PropertyOwnersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=PropertyOwnersRepository::class)
@@ -21,11 +23,13 @@ class PropertyOwners
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $landlord_name;
 
     /**
      * @ORM\Column(type="date")
+     * @Assert\NotBlank
      */
     private $date_first_rental;
 
@@ -113,5 +117,10 @@ class PropertyOwners
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->landlord_name;
     }
 }

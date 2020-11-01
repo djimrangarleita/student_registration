@@ -2,13 +2,17 @@
 
 namespace App\Entity;
 
-use App\Repository\ParentsAndGuardiansRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use App\Repository\ParentsAndGuardiansRepository;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity(repositoryClass=ParentsAndGuardiansRepository::class)
+ * @UniqueEntity(fields={"email_address"}, message="Adresse email deja pris")
  */
 class ParentsAndGuardians
 {
@@ -22,16 +26,19 @@ class ParentsAndGuardians
     /**
      * @ORM\ManyToOne(targetEntity=Addresses::class, inversedBy="parentsAndGuardians")
      * @ORM\JoinColumn(nullable=false)
+     * @Assert\NotBlank
      */
     private $address;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $gender;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $first_name;
 
@@ -42,16 +49,22 @@ class ParentsAndGuardians
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
      */
     private $last_name;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex(
+     * pattern="/[0-9]/")
+     * @Assert\NotBlank
+     * @Assert\Length(min="8", max="14")
      */
     private $cell_mobile_number;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * Assert\Email
      */
     private $email_address;
 

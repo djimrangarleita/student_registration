@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit RefRelationshipTypes{% endblock %}
+{% block title %}Edit RefRelationshipTypes
+{% endblock %}
 
 {% block body %}
-    <h1>Edit RefRelationshipTypes</h1>
+	<div class="container">
+		<h1>Edit RefRelationshipTypes</h1>
 
-    {{ include('ref_relationship_types/_form.html.twig', {'button_label': 'Update'}) }}
+		{{ include('ref_relationship_types/_form.html.twig', {'button_label': 'Update'}) }}
 
-    <a href="{{ path('ref_relationship_types_index') }}">back to list</a>
+		<a href="{{ path('ref_relationship_types_index') }}">back to list</a>
 
-    {{ include('ref_relationship_types/_delete_form.html.twig') }}
+		{{ include('ref_relationship_types/_delete_form.html.twig') }}
+	</div>
 {% endblock %}

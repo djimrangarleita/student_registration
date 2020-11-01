@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New StudentsPayementMethods{% endblock %}
+{% block title %}New StudentsPayementMethods
+{% endblock %}
 
 {% block body %}
-    <h1>Create new StudentsPayementMethods</h1>
+	<div class="container">
+		<h1>Create new StudentsPayementMethods</h1>
 
-    {{ include('students_payement_methods/_form.html.twig') }}
+		{{ include('students_payement_methods/_form.html.twig') }}
 
-    <a href="{{ path('students_payement_methods_index') }}">back to list</a>
+		<a href="{{ path('students_payement_methods_index') }}">back to list</a>
+	</div>
 {% endblock %}

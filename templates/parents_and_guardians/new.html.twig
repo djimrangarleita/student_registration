@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New ParentsAndGuardians{% endblock %}
+{% block title %}New ParentsAndGuardians
+{% endblock %}
 
 {% block body %}
-    <h1>Create new ParentsAndGuardians</h1>
+	<div class="container">
+		<h1>Create new ParentsAndGuardians</h1>
 
-    {{ include('parents_and_guardians/_form.html.twig') }}
+		{{ include('parents_and_guardians/_form.html.twig') }}
 
-    <a href="{{ path('parents_and_guardians_index') }}">back to list</a>
+		<a href="{{ path('parents_and_guardians_index') }}">back to list</a>
+	</div>
 {% endblock %}

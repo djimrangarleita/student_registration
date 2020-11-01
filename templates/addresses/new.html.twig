@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Addresses{% endblock %}
+{% block title %}New Addresses
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Addresses</h1>
+	<div class="container">
+		<h1>Create new Addresses</h1>
 
-    {{ include('addresses/_form.html.twig') }}
+		{{ include('addresses/_form.html.twig') }}
 
-    <a href="{{ path('addresses_index') }}">back to list</a>
+		<a href="{{ path('addresses_index') }}">back to list</a>
+	</div>
 {% endblock %}
