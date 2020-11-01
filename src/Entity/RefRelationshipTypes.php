@@ -100,4 +100,9 @@ class RefRelationshipTypes
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->relationship_type_code;
+    }
 }

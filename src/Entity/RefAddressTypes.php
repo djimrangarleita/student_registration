@@ -100,4 +100,9 @@ class RefAddressTypes
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->address_type_code;
+    }
 }

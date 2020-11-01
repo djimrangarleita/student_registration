@@ -213,4 +213,9 @@ class ParentsAndGuardians
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->email_address;
+    }
 }

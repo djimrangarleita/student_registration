@@ -100,4 +100,9 @@ class RefPayementMethods
 
         return $this;
     }
+
+    public function __toString()
+    {
+        return $this->payement_method_code;
+    }
 }
