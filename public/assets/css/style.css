@@ -11,3 +11,7 @@
     color: rgb(23, 226, 40);
     border-top: 1px solid rgb(23, 226, 40);
 }
+
+footer {
+    bottom: -1px;
+}

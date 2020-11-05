@@ -11,6 +11,11 @@
 			<thead>
 				<tr>
 					<th>Id</th>
+					<th>Student</th>
+					<th>Email Student</th>
+					<th>Person</th>
+					<th>Email Person</th>
+					<th>Phone Person</th>
 					<th>actions</th>
 				</tr>
 			</thead>
@@ -18,6 +23,11 @@
 				{% for students_relationship in students_relationships %}
 					<tr>
 						<td>{{ students_relationship.id }}</td>
+						<td>{{ students_relationship.student.firstName }} {{ students_relationship.student.middleName }} {{ students_relationship.student.lastName }}</td>
+						<td>{{ students_relationship.student }}</td>
+						<td>{{ students_relationship.person.firstName }} {{ students_relationship.person.middleName }} {{ students_relationship.person.lastName }}</td>
+						<td><a href="mailto:{{ students_relationship.person }}" target="blank">{{ students_relationship.person }}</a></td>
+						<td>{{ students_relationship.person.cellMobileNumber }}</td>
 						<td>
 							<a href="{{ path('students_relationships_show', {'id': students_relationship.id}) }}">show</a>
 							<a href="{{ path('students_relationships_edit', {'id': students_relationship.id}) }}">edit</a>

@@ -287,6 +287,6 @@ class Addresses
 
     public function __toString()
     {
-        return $this->landlord;
+        return $this->line_1_number_building;
     }
 }

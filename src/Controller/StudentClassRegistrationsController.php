@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/student/class/registrations")
+ * @Route("/studentclassregistrations")
  * @IsGranted("ROLE_ADMIN")
  * 
  */

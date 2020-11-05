@@ -11,6 +11,7 @@
 			<thead>
 				<tr>
 					<th>Id</th>
+					<th>Student</th>
 					<th>Date_of_registration</th>
 					<th>Date_of_first_class</th>
 					<th>Date_of_last_class</th>
@@ -22,6 +23,7 @@
 				{% for student_class_registration in student_class_registrations %}
 					<tr>
 						<td>{{ student_class_registration.id }}</td>
+						<td>{{ student_class_registration.student.firstName }} {{ student_class_registration.student.middleName }} {{ student_class_registration.student.lastName }}</td>
 						<td>{{ student_class_registration.dateOfRegistration ? student_class_registration.dateOfRegistration|date('Y-m-d H:i:s') : '' }}</td>
 						<td>{{ student_class_registration.dateOfFirstClass ? student_class_registration.dateOfFirstClass|date('Y-m-d') : '' }}</td>
 						<td>{{ student_class_registration.dateOfLastClass ? student_class_registration.dateOfLastClass|date('Y-m-d') : '' }}</td>

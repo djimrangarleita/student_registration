@@ -3,13 +3,12 @@
 	<head>
 		<meta charset="UTF-8"> {% block meta %}{% endblock %}
 		<title>
-			{% block title %}Welcome!
+			{% block title %}Student Registration
 			{% endblock %}
 		</title>
 		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-		<link
-		rel="stylesheet" href="{{ asset('assets/css/bootstrap-theme.min.css') }}">
+		<link rel="stylesheet" href="{{ asset('assets/css/bootstrap-theme.min.css') }}">
 	</head>
 	<body>
 		<nav class="navbar navbar-expand-lg navbar-light bg-primary">
@@ -29,11 +28,11 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('student_class_registrations_index') }}">Inscription
+						<a class="nav-link" href="{{ path('student_class_registrations_index') }}" title="Acces administration">Inscription
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('parents_and_guardians_index') }}">Tuteurs
+						<a class="nav-link" href="{{ path('parents_and_guardians_index') }}" title="Acces administration">Tuteurs
 						</a>
 					</li>
 					<li class="nav-item">
@@ -41,21 +40,25 @@
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('property_owners_index') }}">Bailleurs
+						<a class="nav-link" href="{{ path('property_owners_index') }}" title="Acces administration">Bailleurs
 						</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="{{ path('students_relationships_index') }}">Relations Etudiants
+						<a class="nav-link" href="{{ path('students_relationships_index') }}" title="Acces administration">Relations Etudiants
 						</a>
 					</li>
 				</ul>
-				<form class="form-inline my-2 my-lg-0">
-					<input class="form-control mr-sm-2" type="search" placeholder="Search">
-					<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-				</form>
+				<div class="form-inline my-2 my-lg-0">
+					{% if app.user %}
+						<a class="btn btn-sm btn-success" href="{{ path('app_logout') }}">Deconnexion</a>
+					{% else %}
+						<a class="btn btn-sm btn-success" href="{{ path('app_login') }}">Connexion</a>
+					{% endif %}
+				</div>
 			</div>
 		</nav>
 		{% block body %}{% endblock %}
+		<footer></footer>
 		<script src="{{ asset('assets/js/jquery-3.3.1.slim.min.js') }}"></script>
 		<script src="{{ asset('assets/js/popper.min.js') }}"></script>
 		<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>

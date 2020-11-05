@@ -2,10 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\StudentClassRegistrationsRepository;
+use DateTime;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
+use App\Repository\StudentClassRegistrationsRepository;
 
 
 /**
@@ -35,7 +36,7 @@ class StudentClassRegistrations
     private $class;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      * @Gedmo\Timestampable(on="create")
      */
     private $date_of_registration;
